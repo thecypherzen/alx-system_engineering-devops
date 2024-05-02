@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# a script that configures an nginx server to listen on port 80
 
 file="/etc/nginx/sites-available/default"
 temp="$(awk '($0 ~ /^\s*listen\s+[[:digit:]]+/){print $2}' "$file")"
