@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+file="/etc/nginx/sites-available/default"
+temp="$(awk '($0 ~ /^\s*listen\s+[[:digit:]]+/){print $2}' "$file")"
+curport="$(echo "$temp" | head -1 | cut -d ';' -f1)"
+newport=80
+cp "$file" "${file}.bak"
+sed -E "s/$curport/$newport/g" "$file" > ".tempfile"
+chmod 644 ".tempfile"
+mv ".tempfile" "$file"
+systemctl restart nginx
