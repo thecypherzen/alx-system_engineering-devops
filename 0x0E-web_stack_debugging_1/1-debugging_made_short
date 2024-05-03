@@ -2,8 +2,4 @@
 # a script that configures an nginx server to listen on port 80
 sed -Ei 's/listen [0-9]+/listen 80/' /etc/nginx/sites-available/default
 sed -Ei 's/listen \[::\]:[0-9]+/listen \[::\]:80/' /etc/nginx/sites-available/default
-<<<<<<< HEAD
-systemctl start nginx
-=======
-pkill -SIGTERM nginx
->>>>>>> parent of 8b49b0d... fix(asd:0x0E): change signal sent to nginx in file 1
+pkill -SIGHUP nginx
