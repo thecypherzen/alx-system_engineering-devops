@@ -1,12 +1,22 @@
 #!/usr/bin/env bash
 # a script that configures an nginx server to listen on port 80
 
-file="/etc/nginx/sites-available/default"
-temp="$(awk '($0 ~ /^\s*listen\s+[[:digit:]]+/){print $2}' "$file")"
-curport="$(echo "$temp" | head -1 | cut -d ';' -f1)"
-newport=80
-cp "$file" "${file}.bak"
-sed -E "s/listen $curport/listen $newport/" "$file" > ".tempfile"
-chmod 644 ".tempfile"
-mv ".tempfile" "$file"
-systemctl restart nginx
+server_config="
+server {
+	listen 80 default_server;
+	listen [::]:80 default_server;
+
+	root /usr/share/nginx/html;
+	index index.html index.htm;
+
+	# Make site accessible from http://localhost/
+	server_name localhost;
+
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+
+}
+"
+echo "$server_config" > /etc/nginx/sites-enabled/default
+service nginx restart
