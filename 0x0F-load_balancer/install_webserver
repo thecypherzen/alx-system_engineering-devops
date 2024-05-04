@@ -3,7 +3,7 @@
 # content of the string is 'hello world'
 
 function install_nginx(){
-    check_ufw="$(which ufw)"
+    check_ufw="$(command -v ufw)"
     apt update
     apt install nginx -y
     systemctl start nginx
@@ -25,7 +25,7 @@ function set_default_ip(){
     sed -Ei "s/$ip4_reg/$ip4_rep/" "$default_f"
 }
 
-check="$(which nginx)"
+check="$(command -v nginx)"
 
 if [[ -z "$check" ]]; then
     install_nginx

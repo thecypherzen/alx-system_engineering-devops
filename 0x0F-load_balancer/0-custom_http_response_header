@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # configures a server with a custom header
 
-check="$(which nginx)"
+check="$(command -v nginx)"
 if [[ -z "$check" ]]; then
     echo 'y' | ./install_webserver
 fi
