@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# configures a server with a custom header
 cat > /etc/nginx/sites-available/default <<EOF
 server {
        listen 8080 default_server;
