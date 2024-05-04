@@ -1,9 +1,34 @@
 #!/usr/bin/env bash
 # configures a server with a custom header
 
+function install_nginx(){
+    check_ufw="$(command -v ufw)"
+    apt update
+    echo 'y' | apt install nginx -y
+    systemctl start nginx
+
+    if [[ -z "$check_ufw" ]]; then
+        apt install ufw -y
+    fi
+    ufw enable
+    ufw allow 'Nginx HTTP'
+}
+
+function set_default_ip(){
+    default_f="/etc/nginx/sites-available/default"
+    ip6_reg="listen \[::\]:[0-9]*]* default_server;"
+    ip4_reg="listen [0-9]* default_server;"
+    ip6_rep="listen [::]:80 default_server;"
+    ip4_rep="listen 80 default_server;"
+    sed -Ei "s/$ip6_reg/$ip6_rep/" "$default_f"
+    sed -Ei "s/$ip4_reg/$ip4_rep/" "$default_f"
+}
+
 check="$(command -v nginx)"
+
 if [[ -z "$check" ]]; then
-    echo 'y' | ./install_webserver
+    install_nginx
+    set_default_ip
 fi
 
 cat > /etc/nginx/sites-available/default <<EOF
