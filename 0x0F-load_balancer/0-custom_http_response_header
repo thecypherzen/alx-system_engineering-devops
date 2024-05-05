@@ -27,7 +27,7 @@ server {
        listen [::]:8080 default_server;
 
        root /var/www/html;
-       index index.html index.htm index.nginx-debian.html;
+       index index.html index.htm;
 
        server_name _;
        location / {
@@ -36,4 +36,5 @@ server {
        }
 }
 EOF
+echo "Hello World!" > "/var/www/html/index.html"
 sudo systemctl restart nginx
