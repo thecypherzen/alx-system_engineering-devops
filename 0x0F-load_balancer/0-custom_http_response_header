@@ -12,32 +12,19 @@ function install_nginx(){
 	sudo ufw enable
 	sudo ufw allow 'OpenSSH'
     fi
-
     sudo ufw allow 'Nginx HTTP'
 }
 
-function set_default_ip(){
-    default_f="/etc/nginx/sites-available/default"
-    ip6_reg="listen \[::\]:[0-9]*]* default_server;"
-    ip4_reg="listen [0-9]* default_server;"
-    ip6_rep="listen [::]:80 default_server;"
-    ip4_rep="listen 80 default_server;"
-    sudo sed -Ei "s/$ip6_reg/$ip6_rep/" "$default_f"
-    sudo sed -Ei "s/$ip4_reg/$ip4_rep/" "$default_f"
-}
-
 check="$(command -v nginx)"
-
 if [[ -z "$check" ]]; then
     install_nginx
-    set_default_ip
 fi
 
 fn='/etc/nginx/sites-available/default'
 cat <<EOF | sudo tee "$fn" > /dev/null
 server {
-       listen 80 default_server;
-       listen [::]:80 default_server;
+       listen 8080 default_server;
+       listen [::]:8080 default_server;
 
        root /var/www/html;
        index index.html index.htm index.nginx-debian.html;

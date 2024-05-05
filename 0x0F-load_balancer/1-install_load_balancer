@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# install and configure HAproxy on your lb-01 server.
+
+# install haproxy func
+install_haproxy(){
+    sudo apt-get install --no-install-recommends software-properties-common -y
+    sudo add-apt-repository ppa:vbernat/haproxy-2.9 -y
+    sudo apt-get install haproxy=2.9.\* -y
+}
+
+# install nginx func
+function install_nginx(){
+    check_ufw="$(command -v ufw)"
+    sudo apt update
+    echo 'y' | sudo apt install nginx -y
+    sudo systemctl start nginx
+
+    if [[ -z "$check_ufw" ]]; then
+        sudo apt install ufw -y
+        sudo ufw enable
+        sudo ufw allow 'OpenSSH'
+    fi
+    sudo ufw allow 'Nginx HTTP'
+}
+
+# install nginx if not installed
+check="$(command -v nginx)"
+if [[ -z "$check" ]]; then
+    install_nginx
+    sudo systemctl start nginx
+fi
+
+# install haproxy if not installed
+check="$(command -v haproxy)"
+if [[ -z "$check" ]]; then
+    install_haproxy
+    sudo systemctl start haproxy
+fi
+
+# set localhost to listen on port 8080
+fn='/etc/nginx/sites-available/default'
+cat <<EOF | sudo tee "$fn" > /dev/null
+server {
+       listen 8080 default_server;
+       listen [::]:8080 default_server;
+
+       root /var/www/html;
+       index index.html index.htm index.nginx-debian.html;
+
+       server_name _;
+       location / {
+                try_files \$uri \$uri/ =404;
+                add_header X-Served-By \$hostname;
+       }
+}
+EOF
+sudo systemctl restart nginx
+
+# configure haproxy to listen on port 80 by roundrobin
+fn='/etc/haproxy/haproxy.cfg'
+cat <<EOF | sudo tee -a "$fn" > /dev/null
+frontend myfrontend
+	 bind *:80
+	 default_backend cluster1
+
+backend cluster1
+	balance roundrobin
+	server web01 100.25.200.149:80 check
+	server web02 52.7.198.234:80 check
+EOF
+sudo systemctl restart haproxy
