@@ -3,17 +3,17 @@
 
 function install_nginx(){
     check_ufw="$(command -v ufw)"
-    apt update
-    echo 'y' | apt install nginx -y
-    systemctl start nginx
+    sudo apt update
+    echo 'y' | sudo apt install nginx -y
+    sudo systemctl start nginx
 
     if [[ -z "$check_ufw" ]]; then
-        apt install ufw -y
-	ufw enable
-	ufw allow 'OpenSSH'
+        sudo apt install ufw -y
+	sudo ufw enable
+	sudo ufw allow 'OpenSSH'
     fi
 
-    ufw allow 'Nginx HTTP'
+    sudo ufw allow 'Nginx HTTP'
 }
 
 function set_default_ip(){
@@ -22,8 +22,8 @@ function set_default_ip(){
     ip4_reg="listen [0-9]* default_server;"
     ip6_rep="listen [::]:80 default_server;"
     ip4_rep="listen 80 default_server;"
-    sed -Ei "s/$ip6_reg/$ip6_rep/" "$default_f"
-    sed -Ei "s/$ip4_reg/$ip4_rep/" "$default_f"
+    sudo sed -Ei "s/$ip6_reg/$ip6_rep/" "$default_f"
+    sudo sed -Ei "s/$ip4_reg/$ip4_rep/" "$default_f"
 }
 
 check="$(command -v nginx)"
@@ -33,7 +33,8 @@ if [[ -z "$check" ]]; then
     set_default_ip
 fi
 
-cat > /etc/nginx/sites-available/default <<EOF
+fn='/etc/nginx/sites-available/default'
+cat <<EOF | sudo tee "$fn" > /dev/null
 server {
        listen 80 default_server;
        listen [::]:80 default_server;
@@ -48,4 +49,4 @@ server {
        }
 }
 EOF
-systemctl restart nginx
+sudo systemctl restart nginx
