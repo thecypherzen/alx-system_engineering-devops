@@ -9,8 +9,10 @@ function install_nginx(){
 
     if [[ -z "$check_ufw" ]]; then
         apt install ufw -y
+	ufw enable
+	ufw allow 'OpenSSH'
     fi
-    ufw enable
+
     ufw allow 'Nginx HTTP'
 }
 
