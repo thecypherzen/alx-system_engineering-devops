@@ -5,7 +5,7 @@
 install_haproxy(){
     sudo apt-get install --no-install-recommends software-properties-common -y
     sudo add-apt-repository ppa:vbernat/haproxy-2.9 -y
-    sudo apt-get install haproxy=2.9.\* -y
+    echo 'y' | sudo apt-get install haproxy=2.9.\* -y
 }
 
 # install nginx func
@@ -26,14 +26,14 @@ function install_nginx(){
 # install nginx if not installed
 check="$(command -v nginx)"
 if [[ -z "$check" ]]; then
-    sudo install_nginx
+    install_nginx
 fi
 
 # install haproxy if not installed
 check="$(command -v haproxy)"
 if [[ -z "$check" ]]; then
-    sudo install_haproxy
-    sudo systemctl start haproxy
+    echo "installing haproxy"
+    install_haproxy
 fi
 
 # set localhost to listen on port 8080
