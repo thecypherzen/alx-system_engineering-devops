@@ -27,7 +27,6 @@ function install_nginx(){
 check="$(command -v nginx)"
 if [[ -z "$check" ]]; then
     install_nginx
-    sudo systemctl start nginx
 fi
 
 # install haproxy if not installed
@@ -54,7 +53,7 @@ server {
        }
 }
 EOF
-sudo systemctl restart nginx
+systemctl restart nginx
 
 # configure haproxy to listen on port 80 by roundrobin
 fn='/etc/haproxy/haproxy.cfg'
@@ -71,4 +70,4 @@ EOF
 
 # enable init restart
 echo 'ENABLED=1' | tee -a '/etc/default/haproxy' > /dev/null
-sudo systemctl restart haproxy
+systemctl restart haproxy
