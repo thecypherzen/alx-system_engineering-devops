@@ -3,37 +3,37 @@
 
 # install haproxy func
 install_haproxy(){
-    apt-get install --no-install-recommends software-properties-common -y
-    add-apt-repository ppa:vbernat/haproxy-2.9 -y
-    apt-get install haproxy=2.9.\* -y
+    sudo apt-get install --no-install-recommends software-properties-common -y
+    sudo add-apt-repository ppa:vbernat/haproxy-2.9 -y
+    sudo apt-get install haproxy=2.9.\* -y
 }
 
 # install nginx func
 function install_nginx(){
     check_ufw="$(command -v ufw)"
-    apt update
+    sudo apt update
     echo 'y' | sudo apt install nginx -y
-    systemctl start nginx
+    sudo systemctl start nginx
 
     if [[ -z "$check_ufw" ]]; then
-        apt install ufw -y
-        ufw enable
-        ufw allow 'OpenSSH'
+        sudo apt install ufw -y
+        sudo ufw enable
+        sudo ufw allow 'OpenSSH'
     fi
-    ufw allow 'Nginx HTTP'
+    sudo ufw allow 'Nginx HTTP'
 }
 
 # install nginx if not installed
 check="$(command -v nginx)"
 if [[ -z "$check" ]]; then
-    install_nginx
+    sudo install_nginx
 fi
 
 # install haproxy if not installed
 check="$(command -v haproxy)"
 if [[ -z "$check" ]]; then
-    install_haproxy
-    systemctl start haproxy
+    sudo install_haproxy
+    sudo systemctl start haproxy
 fi
 
 # set localhost to listen on port 8080
@@ -53,7 +53,7 @@ server {
        }
 }
 EOF
-systemctl restart nginx
+sudo systemctl restart nginx
 
 # configure haproxy to listen on port 80 by roundrobin
 fn='/etc/haproxy/haproxy.cfg'
@@ -69,5 +69,5 @@ backend cluster1
 EOF
 
 # enable init restart
-echo 'ENABLED=1' | tee -a '/etc/default/haproxy' > /dev/null
-systemctl restart haproxy
+echo 'ENABLED=1' | sudo tee -a '/etc/default/haproxy' > /dev/null
+sudo systemctl restart haproxy
