@@ -34,6 +34,7 @@ fi
 check="$(command -v haproxy)"
 if [[ -z "$check" ]]; then
     install_haproxy
+    sudo systemctl enable haproxy
     sudo systemctl start haproxy
 fi
 
