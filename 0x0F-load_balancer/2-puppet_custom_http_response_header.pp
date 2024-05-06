@@ -38,7 +38,7 @@ service {'nginx.service':
 file {'nginx_content':
   ensure  => present,
   path    => '/var/www/html/index.html',
-  content => 'Hello World!',
+  content => "Hello World!\n",
 }
 
 
