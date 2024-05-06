@@ -18,13 +18,14 @@ function install_nginx(){
 check="$(command -v nginx)"
 if [[ -z "$check" ]]; then
     install_nginx
+    sudo systemctl enable nginxdex.html
 fi
 
 fn='/etc/nginx/sites-available/default'
 cat <<EOF | sudo tee "$fn" > /dev/null
 server {
-       listen 8080 default_server;
-       listen [::]:8080 default_server;
+       listen 80 default_server;
+       listen [::]:80 default_server;
 
        root /var/www/html;
        index index.html index.htm;
@@ -36,5 +37,5 @@ server {
        }
 }
 EOF
-echo "Hello World!" > "/var/www/html/index.html"
+echo "Hello World!" | sudo tee "/var/www/html/index.html" > /dev/null
 sudo systemctl restart nginx
