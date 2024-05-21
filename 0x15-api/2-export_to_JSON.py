@@ -15,12 +15,12 @@ Requirements:
       TASK_COMPLETED_STATUS, "username": "USERNAME"}, ... ]}
 
       where:
-          EMPLOYEE_NAME: name of the employee
-          NUMBER_OF_DONE_TASKS: number of completed tasks
-          TOTAL_NUMBER_OF_TASKS: total number of tasks, which is the sum of
-          + completed and non-completed tasks
-      Second and N next lines display the title of completed tasks:
-      + TASK_TITLE (with 1 tabulation and 1 space before the TASK_TITLE)
+          USER_ID: id of user
+          TASK_TITLE: title of user's task
+          TASK_COMPLETED_STATUS: status of task
+          USERNAME: user's username
+
+   - File name must be: USER_ID.json
 """
 
 if __name__ == "__main__":
