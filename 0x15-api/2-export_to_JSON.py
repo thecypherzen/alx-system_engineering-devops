@@ -35,19 +35,20 @@ if __name__ == "__main__":
         uri = f"https://jsonplaceholder.typicode.com/users/{id}"
         completed = 0
         total = 0
-        tasks = tuple()
+        tasks_list = []
 
         # get user's name and todos
         user = dict(requests.get(url=uri).json())
-        name = user.get("name", "None")
         todos = requests.get(url=f"{uri}/todos")
 
         # calculate completed
         for item in list(todos.json()):
-            tasks = tasks + (
+            tasks = (
                 ("task", item.get("title")),
                 ("completed", item.get("completed")),
-                ("username", us.get("username"))
+                ("username", user.get("username"))
             )
-        msg = {f"{id}":[dict(tasks)]}
-        print(msg)
+            tasks_list.append(dict(tasks))
+        msg = {f"{id}": tasks_list}
+        with open(f"{id}.json", 'w') as f:
+            json.dump(msg, f)
