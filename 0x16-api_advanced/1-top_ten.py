@@ -19,16 +19,14 @@ def top_ten(subreddit):
         "Accept": "application/json"
     }
     limit = 10
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json" + \
-        f"?limit={limit}&raw_json=1"
+    url = f"https://www.reddit.com/r/{subreddit}.json" + \
+        f"?sort=top&limit={limit}"
     print(url)
     response = requests.get(url, headers=hdrs,
                             allow_redirects=False)
     if response.status_code == 200:
-        objs = response.json()["data"]["children"]
-        while len(objs) > limit:
-            objs.pop()
+        objs = response.json()["data"]["children"][0:limit]
         for obj in objs:
             print(obj["data"]["title"])
     else:
-        return print("None")
+        return print(None)
