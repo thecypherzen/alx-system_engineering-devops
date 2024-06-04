@@ -12,15 +12,14 @@ def top_ten(subreddit):
                 Ensure that you are not following redirects.
     """
     import requests
-    import json
+
 
     hdrs = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
         "Accept": "application/json"
     }
     limit = 10
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json" + \
-        f"?limit={limit}"
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     response = requests.get(url, headers=hdrs,
                             allow_redirects=False)
     if response.status_code == 200:

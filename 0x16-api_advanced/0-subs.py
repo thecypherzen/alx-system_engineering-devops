@@ -19,6 +19,7 @@ def number_of_subscribers(subreddit):
     """
     import requests
 
+
     hdrs = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
         "Accept": "application/json"
