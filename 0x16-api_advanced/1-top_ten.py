@@ -13,21 +13,27 @@ def top_ten(subreddit):
     """
     import requests
 
-
     hdrs = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
         "Accept": "application/json"
     }
     limit = 10
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
-    response = requests.get(url, headers=hdrs,
-                            allow_redirects=False)
-    if response.status_code == 200:
-        objs = response.json()["data"]["children"][0:limit]
-        if objs:
-            for obj in objs:
-                print(obj["data"]["title"])
+    try:
+        response = requests.get(url, headers=hdrs,
+                                allow_redirects=False)
+        if response.status_code == 200:
+            resdata = response.json()
+            if resdata.get("data") and resdata["data"].get("children"):
+                posts = resdata["data"]["children"][:limit]
+                if posts:
+                    for post in posts:
+                        print(post["data"]["title"] or None)
+                else:
+                    print(None)
+            else:
+                print(None)
         else:
             print(None)
-    else:
+    except Exception:
         print(None)
