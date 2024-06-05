@@ -2,7 +2,7 @@
 """ A script that defines a function """
 
 
-def recurse(subreddit, hot_list=[]):
+def top_ten(subreddit):
     """ A function that queries the Reddit API and and prints the titles
         of the first 10 hot posts listed for a given subreddit.
 

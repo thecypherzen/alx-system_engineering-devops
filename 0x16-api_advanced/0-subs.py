@@ -24,6 +24,7 @@ def number_of_subscribers(subreddit):
         "Accept": "application/json"
     }
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    print(hdrs)
     try:
         response = requests.get(url, headers=hdrs,
                                 allow_redirects=False)
