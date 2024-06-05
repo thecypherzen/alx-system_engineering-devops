@@ -19,14 +19,20 @@ def number_of_subscribers(subreddit):
     """
     import requests
 
-
     hdrs = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
         "Accept": "application/json"
     }
     url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    response = requests.get(url, headers=hdrs,
-                            allow_redirects=False)
-    if response.status_code == 200:
-        return response.json()["data"]["subscribers"]
-    return 0
+    try:
+        response = requests.get(url, headers=hdrs,
+                                allow_redirects=False)
+        if response.status_code == 200:
+            res_data = response.json()
+            if not all([res_data.get("data"),
+                        res_data["data"].get("subscribers")]):
+                return 0
+            return res_data["data"]["subscribers"]
+        return 0
+    except Exception:
+        return 0
