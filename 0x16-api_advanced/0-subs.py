@@ -23,7 +23,7 @@ def number_of_subscribers(subreddit):
         "User-Agent": "Mozilla/5.0",
         "Accept": "application/json"
     }
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
+    url = f"https://www.reddit.com/r/{subreddit}/about/.json"
     try:
         response = requests.get(url, headers=hdrs,
                                 allow_redirects=False)
