@@ -1,2 +1,2 @@
-what's up
-people?
+[::]:80 default server;
+listen 80 default server;

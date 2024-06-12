@@ -3,26 +3,26 @@
 
 function install_nginx(){
     check_ufw="$(command -v ufw)"
-    sudo apt update
+    apt update
     echo 'y' | sudo apt install nginx -y
-    sudo systemctl start nginx
+    systemctl start nginx
 
     if [[ -z "$check_ufw" ]]; then
-        sudo apt install ufw -y
-	sudo ufw enable
-	sudo ufw allow 'OpenSSH'
+        apt install ufw -y
+	ufw enable
+	ufw allow 'OpenSSH'
     fi
-    sudo ufw allow 'Nginx HTTP'
+    ufw allow 'Nginx HTTP'
 }
 
 check="$(command -v nginx)"
 if [[ -z "$check" ]]; then
     install_nginx
-    sudo systemctl enable nginxdex.html
+    systemctl enable nginxdex.html
 fi
 
 fn='/etc/nginx/sites-available/default'
-cat <<EOF | sudo tee "$fn" > /dev/null
+cat <<EOF | tee "$fn" > /dev/null
 server {
        listen 80 default_server;
        listen [::]:80 default_server;
@@ -37,5 +37,5 @@ server {
        }
 }
 EOF
-echo "Hello World!" | sudo tee "/var/www/html/index.html" > /dev/null
-sudo systemctl restart nginx
+echo "Hello World!" | tee "/var/www/html/index.html" > /dev/null
+systemctl restart nginx
