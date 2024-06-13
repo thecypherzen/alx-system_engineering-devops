@@ -17,7 +17,7 @@ server {
        		add_header X-Served-By $hostname always;
        }
 
-       location /airbnb-dynamic/number_odd_or_even {
+       location ~* /airbnb-dynamic/number_odd_or_even/[0-9]+ {
        		proxy_pass http://0.0.0.0:5001;
 		add_header X-Served-By $hostname always;
        }
