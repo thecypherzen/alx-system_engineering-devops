@@ -1,1 +1,4 @@
+#!/usr/bin/bash
+
+# reloads gunicorn gracefully
 kill -HUP $(pgrep gunicorn | sort -n | head -1)
