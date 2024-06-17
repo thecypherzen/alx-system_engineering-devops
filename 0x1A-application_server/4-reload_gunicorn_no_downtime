@@ -1,3 +1,4 @@
 #!/usr/bin/env bash
 # reloads gunicorn gracefully
-sudo kill -HUP "$(pgrep gunicorn | sort -n | head -1) 2>/dev/null"
+# sudo kill -HUP "$(pgrep gunicorn | sort -n | head -1) 2>/dev/null"
+sudo systemctl status gunicorn | grep -i "main pid" | awk '{print $3}' | xargs kill -HUP
