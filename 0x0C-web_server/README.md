@@ -70,15 +70,15 @@ It is expected that at the end of this project, you are expected to be able to e
 - Code tested on Ubuntu 20.04 LTS.
 
 ## File Tree ##
-├── 0-transfer_file
-├── 1-install_nginx_web_server
-├── 2-setup_a_domain_name
-├── 3-redirection
-├── 4-not_found_page_404
-├── 7-puppet_install_nginx_web_server.pp
-├── README.md
-├── testtext.sh
-└── text.sh
+├── 0-transfer_file <br/>
+├── 1-install_nginx_web_server <br/>
+├── 2-setup_a_domain_name <br/>
+├── 3-redirection<br/>
+├── 4-not_found_page_404<br/>
+├── 7-puppet_install_nginx_web_server.pp<br/>
+├── README.md<br/>
+├── testtext.sh<br/>
+└── text.sh<br/>
 
 *0 directories, 9 files*
 
