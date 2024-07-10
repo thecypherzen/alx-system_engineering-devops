@@ -1,3 +1,8 @@
+# a manifest that configures a new nginx server and:
+# 1. sets redirection for an endpoint
+# 2. sets a 404 response page
+# 3. defines the defaults
+
 $config = @("END"/$)
     server {
         listen 80 default_server;
