@@ -70,7 +70,17 @@ It is expected that at the end of this project, you are expected to be able to e
 - Code tested on Ubuntu 20.04 LTS.
 
 ## File Tree ##
-Pending
+├── 0-transfer_file
+├── 1-install_nginx_web_server
+├── 2-setup_a_domain_name
+├── 3-redirection
+├── 4-not_found_page_404
+├── 7-puppet_install_nginx_web_server.pp
+├── README.md
+├── testtext.sh
+└── text.sh
+
+*0 directories, 9 files*
 
 
 ## Files ###
@@ -78,4 +88,11 @@ Pending
 
 | SN | File | Description                                   |
 |----|------|-----------------------------------------------|
-| 1. | [Coming soon](https://www.github.com) |  |
+| 1. | [0-transfer_file](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x0C-web_server/0-transfer_file) | A Bash script that transfers a file from our client to a server: <br /> |
+| 2. | [1-install_nginx_web_server](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x0C-web_server/1-install_nginx_web_server) | |
+| 3. | [2-setup_a_domain_name](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x0C-web_server/2-setup_a_domain_name) | |
+| 4. | [3-redirection](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x0C-web_server/3-redirection) | |
+| 5. | [4-not_found_page_404](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x0C-web_server/4-not_found_page_404) |  |
+| 6. | [7-puppet_install_nginx_web_server.pp](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x0C-web_server/7-puppet_install_nginx_web_server.pp)  |  |
+| 7. | [README.md](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x0C-web_server/README.md) | |
+| 8. | [Others] | Test files - not project dependent. |
