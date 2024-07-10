@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-# a script that configures an nginx server to listen on port 80
-sed -Ei 's/listen [0-9]+/listen 80/' /etc/nginx/sites-available/default
-sed -Ei 's/listen \[::\]:[0-9]+/listen \[::\]:80/' /etc/nginx/sites-available/default
-pkill -SIGHUP nginx
