@@ -1,41 +1,26 @@
 #!/usr/bin/env bash
 # configures a server with a custom header
 
-function install_nginx(){
-    check_ufw="$(command -v ufw)"
-    apt update
-    echo 'y' | sudo apt install nginx -y
-    systemctl start nginx
+config_file="/etc/nginx/sites-available/default"
+apt update
+apt install nginx -y
 
-    if [[ -z "$check_ufw" ]]; then
-        apt install ufw -y
-	ufw enable
-	ufw allow 'OpenSSH'
-    fi
-    ufw allow 'Nginx HTTP'
-}
+# write config to nginx config file
+cat <<CONFIG | tee "$config_file" > /dev/null
+    server {
+    	   listen 80 default_server;
+	   listen [::]:80 default_server;
+	   server_name _;
+	   root /var/www/html;
+	   index index.html;
 
-check="$(command -v nginx)"
-if [[ -z "$check" ]]; then
-    install_nginx
-    systemctl enable nginxdex.html
-fi
-
-fn='/etc/nginx/sites-available/default'
-cat <<EOF | tee "$fn" > /dev/null
-server {
-       listen 80 default_server;
-       listen [::]:80 default_server;
-
-       root /var/www/html;
-       index index.html index.htm;
-
-       server_name _;
-       location / {
-       		try_files \$uri \$uri/ =404;
+	   location / {
+	   	try_files \$uri \$uri/ =404;
 		add_header X-Served-By \$hostname;
-       }
-}
-EOF
-echo "Hello World!" | tee "/var/www/html/index.html" > /dev/null
-systemctl restart nginx
+	   }
+    }
+CONFIG
+
+# reboot nginx
+systemctl reload nginx
+systemctl start nginx
