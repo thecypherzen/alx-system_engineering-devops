@@ -1,46 +1,67 @@
 # Overview #
 
-As the days go by, we're getting close to specilization and this **0x0A. Configuration management** project is very important because it introduces to the concepts of configurations. The importance of cofigurations cannot be overemphasized. This story is here to drive this fact even deeper.<br/><br/>
+This project introduces the concepts of **servers**, and how to configure them with **Nginx**.
 
-*When I was working for SlideShare, I worked on an auto-remediation tool called Skynet that monitored, scaled and fixed Cloud infrastructure. I was using a parallel job-execution system called MCollective that allowed me to execute commands to one or multiple servers at the same time. I could apply an action to a selected set of servers by applying a filter such as the server’s hostname or any other metadata we had (server type, server environment…). At some point, a bug was present in my code that sent nil to the filter method.<br/><br/>There were 2 pieces of bad news:<ol><li>When MCollective receives *nil* as an argument for its filter method, it takes this to mean ‘all servers’;</li><li>The action I sent was to terminate the selected servers.</li></ol><br/>I started the parallel job-execution and after some time, I realized that it was taking longer than expected. Looking at logs I realized that I was shutting down SlideShare’s entire document conversion environment. Actually, 75% of all our conversion infrastructure servers had been shut down, resulting in users not able to convert their PDFs, powerpoints, and videos… Pretty bad!<br/><br/>Thanks to Puppet, we were able to restore our infrastructure to normal operation in under 1H, pretty impressive. Imagine if we had to do everything manually: launching the servers, configuring and linking them, importing application code, starting every process, and obviously, fixing all the bugs (you should know by now that complicated infrastructure always goes sideways)…<br/><br/>Obviously writing Puppet code for your infrastructure requires an investment of time and energy, but in the long term, it is for sure a must-have.*
+I love this with my whole heart.
 
 <hr/>
+
+### Learning Objectives ###
+It is expected that at the end of this project, you are expected to be able to explain to anyone, without the help of Google:
+
+#### General ####
+- What is the main role of a web server
+- What is a child process
+- Why web servers usually have a parent process and child processes
+- What are the main HTTP requests
+
+#### DNS ###
+- What DNS stands for
+- What is DNS main role
+
+#### DNS Record Types ####
+- A
+- CNAME
+- TXT
+- MX
+
+### Requirements and Constraints ###
+- Allowed editors: `vi`, `vim`, and `emacs`
+- All files will be interpreted on Ubuntu 16.04 LTS
+- All files should end with a new line
+- A README.md file, at the root of the folder of the project, is mandatory
+- All Bash script files must be executable
+- Bash scripts must pass Shellcheck (version 0.3.7) without any error
+- The first line of all Bash scripts should be exactly `#!/usr/bin/env bash`
+- The second line of all Bash scripts should be a comment explaining what is the script doing
+- Can’t use `systemctl` for restarting a process
+
 
 ## Folder Details ###
 - **Date Created:** Fri 19 Apr. 2024.
 - **Author:** [William Inyam](https.//github.com/thecypherzen).
 - **Project Timeline:**
-  - **Released:** Fri Apr. 19, 2024 - 6am.
-  - **1st Deadline:** Sat Apr. 20, 2024 - 6am.
-  - **Duration:** 24 hrs.
-  - **Month** 6, **Week** 2, **Day** 5.
+  - **Released:** Mon July 1, 2024 - 6am.
+  - **1st Deadline:** Wed July 3, 2024 - 6am.
+  - **Duration:** 3 days.
+  - **Month** 5, **Week** [], **Day** [].
 
-
-
-## Dependencies ##
-The following installations are needed for completing this project:
-
-#### 1. Installing Puppet ####
-```
-$ apt-get install -y ruby=1:2.7+1 --allow-downgrades
-$ apt-get install -y ruby-augeas
-$ apt-get install -y ruby-shadow
-$ apt-get install -y puppet
-
-```
-**There's no need to attempt to upgrade versions. This project is simply a set of tasks to familiarize you with the basic level syntax which is virtually identical in newer versions of Puppet.**
-
-#### 2. Install puppet-lint ####
-```
-$ gem install puppet-lint
-```
 
 ## Reference Resources
-- [Intro to Configuration Management](https://www.digitalocean.com/community/tutorials/an-introduction-to-configuration-management)
-- [Puppet resource type: file](https://www.puppet.com/docs/puppet/5.5/types/file.html) **(check “Resource types” for all manifest types in the left menu)**
-- [Puppet’s Declarative Language: Modeling Instead of Scripting](https://www.puppet.com/blog)
-- [Puppet lint](http://puppet-lint.com/)
-- [Puppet emacs mode](https://github.com/voxpupuli/puppet-mode)
+- [How the web works](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/How_the_Web_works)
+- [Nginx](https://en.wikipedia.org/wiki/Nginx)
+- [How to Configure Nginx](https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-16-04)
+- [Child process concept page](https://www.notion.so/What-is-a-Child-Process-9716066970b942e1ba72af43b2279c08)
+- [Root and sub domain](https://landingi.com/help/domains-vs-subdomains/)
+- [HTTP requests](https://www.tutorialspoint.com/http/http_header_fields.htm)
+- [HTTP redirection](https://moz.com/learn/seo/redirection)
+- [Not found HTTP response code](https://en.wikipedia.org/wiki/HTTP_404)
+- [Logs files on Linux](https://www.cyberciti.biz/faq/ubuntu-linux-gnome-system-log-viewer/)
+- [RFC 7231 (HTTP/1.1)](https://datatracker.ietf.org/doc/html/rfc7231)
+- [RFC 7540 (HTTP/2)](https://datatracker.ietf.org/doc/html/rfc7540)
+
+## Useful Commands to `man` or `help`
+`scp`, `curl`
 
 
 ## Technologies ##
