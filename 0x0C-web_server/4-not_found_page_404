@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# a script that installs and configures an nginx server to:
+# 1. return the string 'hello world' by default
+# 2. redirect a given endpoint permanently
+# 3. have a custom 404 page
+
+file='/etc/nginx/sites-available/default'
+not_found="Ceci n'est pas une page"
+config="$(cat <<END
+server {
+       listen 80 default_server;
+       listen [::]:80 default_server;
+
+       root /var/www/html;
+       index index.html;
+       server_name _;
+
+       location /redirect_me {
+            return 301 https://google.com;
+       }
+
+       location / {
+            try_files \$uri \$uri/ =404;
+       }
+
+       error_page 404 /not_found_404.html;
+       location = /not_found_404.html {
+       	    internal;
+       }
+}
+END
+)"
+apt install nginx -y
+echo "$config" > "$file"
+echo "$not_found" > "/var/www/html/not_found_404.html"
+echo "Hello World!" > '/var/www/html/index.html'
+/etc/init.d/nginx reload
+/etc/init.d/nginx start
