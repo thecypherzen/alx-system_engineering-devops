@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+# a script that configures an nginx server to return the string
+# 'hello world' and set up a redirection
+
+file='/etc/nginx/sites-available/default'
+config="$(cat <<END
+server {
+       listen 80 default_server;
+       listen [::]:80 default_server;
+
+       root /var/www/html;
+       index index.html;
+       server_name _;
+
+       location /redirect_me {
+            return 301 https://google.com;
+       }
+
+       location / {
+            try_files \$uri \$uri/ =404;
+       }
+}
+END
+)"
+apt install nginx -y
+echo "$config" > "$file"
+echo "Hello World!" > '/var/www/html/index.html'
+/etc/init.d/nginx reload
+/etc/init.d/nginx start
