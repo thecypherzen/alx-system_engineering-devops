@@ -20,6 +20,7 @@ cat <<CONFIG | tee "$config_file" > /dev/null
 	   }
     }
 CONFIG
+echo "Hello World!" > '/var/www/html/index.html'
 
 # reboot nginx
 systemctl reload nginx
