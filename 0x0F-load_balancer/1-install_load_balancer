@@ -3,14 +3,14 @@
 
 file='/etc/haproxy/haproxy.cfg'
 
-#apt update -y
+sudo apt update -y
 #DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends software-properties-common -y
 #DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:vbernat/haproxy-2.9 -y
 #DEBIAN_FRONTEND=noninteractive apt-get install haproxy=2.9.\* -y
+sudo apt install -y haproxy
 
-sed -Ei '/daemon$/a \\th1-case-adjust x-served-by X-Served-By' "$file"
-
-cat <<EOF | tee -a "$file" > /dev/null
+sudo sed -Ei '/daemon$/a \\th1-case-adjust x-served-by X-Served-By' "$file"
+cat <<EOF | sudo tee -a "$file" > /dev/null
 
 frontend lb_frontend
          bind *:80
@@ -23,6 +23,5 @@ backend web_servers
         server web_02 100.27.12.254:80 check
 EOF
 
-# echo "ENABLED=1" | tee -a "/etc/default/haproxy" > /dev/null
-systemctl enable haproxy
-systemctl restart haproxy
+echo "ENABLED=1" | tee -a "/etc/default/haproxy" > /dev/null
+sudo /etc/init.d/haproxy restart
