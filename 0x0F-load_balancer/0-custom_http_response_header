@@ -3,7 +3,7 @@
 
 config_file="/etc/nginx/sites-available/default"
 apt update
-apt install nginx -y
+apt install -y nginx
 
 # write config to nginx config file
 cat <<CONFIG | tee "$config_file" > /dev/null
