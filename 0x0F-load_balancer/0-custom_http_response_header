@@ -2,8 +2,10 @@
 # configures a server with a custom header
 
 config_file="/etc/nginx/sites-available/default"
+not_found="Ceci n'est pas une page"
+
 apt update
-apt install -y nginx
+apt install nginx -y
 
 # write config to nginx config file
 cat <<CONFIG | tee "$config_file" > /dev/null
@@ -11,17 +13,26 @@ cat <<CONFIG | tee "$config_file" > /dev/null
     	   listen 80 default_server;
 	   listen [::]:80 default_server;
 	   server_name _;
+
 	   root /var/www/html;
 	   index index.html;
 
+	   location /redirect_me {
+	   	return 301 https://google.com;
+	   }
 	   location / {
 	   	try_files \$uri \$uri/ =404;
 		add_header X-Served-By \$hostname;
 	   }
+	   error_page 404 /not_found.html;
+	   location = /not_found.html {
+	   	internal;
+	   }
     }
 CONFIG
 echo "Hello World!" > '/var/www/html/index.html'
+echo "$not_found" > '/var/www/html/not_found.html'
 
 # reboot nginx
 systemctl reload nginx
-systemctl start nginx
+systemctl restart nginx
