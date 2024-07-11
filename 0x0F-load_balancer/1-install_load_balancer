@@ -3,10 +3,10 @@
 
 file='/etc/haproxy/haproxy.cfg'
 
-apt update -y
-DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends software-properties-common -y
-DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:vbernat/haproxy-2.9 -y
-DEBIAN_FRONTEND=noninteractive apt-get install haproxy=2.9.\* -y
+#apt update -y
+#DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends software-properties-common -y
+#DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:vbernat/haproxy-2.9 -y
+#DEBIAN_FRONTEND=noninteractive apt-get install haproxy=2.9.\* -y
 
 sed -Ei '/daemon$/a \\th1-case-adjust x-served-by X-Served-By' "$file"
 
@@ -14,13 +14,11 @@ cat <<EOF | tee -a "$file" > /dev/null
 
 frontend lb_frontend
          bind *:80
-         mode http
          default_backend web_servers
 	 option h1-case-adjust-bogus-client
 
 backend web_servers
         balance roundrobin
-        mode http
         server web_01 34.239.254.5:80 check
         server web_02 100.27.12.254:80 check
 EOF
