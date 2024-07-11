@@ -3,16 +3,19 @@
 
 # function handling info query and printing
 print_info(){
-    res="$(awk '{print $4,$5}' \
-    "< <(dig $1.$2 | grep -A1 'ANSWER SECTION:' | tail -1)")"
+    res="$(2>/dev/null awk '{print $4,$5}' < <(dig $1.$2 | grep -A1 'ANSWER SECTION:' | tail -1))"
 
-    type="$(cut -d' ' -f1 <<< "$res")"
-    ip="$(cut -d' ' -f2 <<< "$res")"
-
-    echo "The subdomain $1 is a $type record and points to $ip"
+    if [ -n "$res" ]; then
+	type="$(cut -d' ' -f1 <<< "$res")"
+	ip="$(cut -d' ' -f2 <<< "$res")"
+	echo "The subdomain $1 is a $type record and points to $ip"
+    fi
 }
 
 
+if (( ! "$#" )); then
+    exit 1
+fi
 
 domain="$1"
 
