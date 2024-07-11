@@ -21,5 +21,6 @@ backend web_servers
         server web_02 100.27.12.254:80 check
 EOF
 
-echo "ENABLED=1" | tee -a "/etc/default/haproxy" > /dev/null
+# echo "ENABLED=1" | tee -a "/etc/default/haproxy" > /dev/null
+systemctl enable haproxy
 systemctl restart haproxy
