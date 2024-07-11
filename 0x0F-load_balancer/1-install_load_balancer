@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 # install and configure HAproxy on your lb-01 server.
 
-if (("$EUID")); then
-    exit 1
-fi
+apt update -y
+DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends software-properties-common
+DEBIAN_FRONTEND=noninteractive add-apt-repository ppa:vbernat/haproxy-2.9
+DEBIAN_FRONTEND=noninteractive apt-get install -y haproxy=2.9.\*
+
 
 cat <<EOF | tee -a "/etc/haproxy/haproxy.cfg" > /dev/null
 
