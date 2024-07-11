@@ -4,7 +4,7 @@
 config_file="/etc/nginx/sites-available/default"
 not_found="Ceci n'est pas une page"
 
-sudo apt update
+sudo apt update -y
 sudo apt install nginx -y
 
 # write config to nginx config file
@@ -16,13 +16,13 @@ cat <<CONFIG | sudo tee "$config_file" > /dev/null
 
 	   root /var/www/html;
 	   index index.html;
+	   add_header X-Served-By \$hostname always;
 
 	   location /redirect_me {
 	   	return 301 https://google.com;
 	   }
 	   location / {
 	   	try_files \$uri \$uri/ =404;
-		add_header X-Served-By \$hostname;
 	   }
 	   error_page 404 /not_found.html;
 	   location = /not_found.html {
