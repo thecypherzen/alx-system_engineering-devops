@@ -4,11 +4,11 @@
 config_file="/etc/nginx/sites-available/default"
 not_found="Ceci n'est pas une page"
 
-apt update
-apt install nginx -y
+sudo apt update
+sudo apt install nginx -y
 
 # write config to nginx config file
-cat <<CONFIG | tee "$config_file" > /dev/null
+cat <<CONFIG | sudo tee "$config_file" > /dev/null
     server {
     	   listen 80 default_server;
 	   listen [::]:80 default_server;
@@ -30,9 +30,9 @@ cat <<CONFIG | tee "$config_file" > /dev/null
 	   }
     }
 CONFIG
-echo "Hello World!" > '/var/www/html/index.html'
-echo "$not_found" > '/var/www/html/not_found.html'
+echo "Hello World!" | sudo tee '/var/www/html/index.html' > /dev/null
+echo "$not_found" | sudo tee  '/var/www/html/not_found.html' > /dev/null
 
 # reboot nginx
-systemctl reload nginx
-systemctl restart nginx
+sudo /etc/init.d/nginx reload
+sudo /etc/init.d/nginx start
