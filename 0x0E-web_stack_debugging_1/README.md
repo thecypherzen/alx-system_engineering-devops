@@ -47,4 +47,4 @@ ROOT
 |----|------|-----------------------------------------------|
 | 1. | [0-nginx_likes_port_80](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x0E-web_stack_debugging_1/0-nginx_likes_port_80) | A bash script that resolves nginx failing to listen on port 80  and configures a server without this issue. |
 | 2. | [1-debugging_made_short](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x0E-web_stack_debugging_1/1-debugging_made_short) | A bash script that does the same thing as above but in 5 liness  |
-| 3. | [Readme] | Folder readme file |
+| 3. | Readme.md | Folder readme file |
