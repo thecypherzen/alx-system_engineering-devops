@@ -31,7 +31,7 @@ $ curl -v 0:8080
 > Host: 0:8080
 > User-Agent: curl/7.68.0
 > Accept: */*
-> 
+>
 * Recv failure: Connection reset by peer
 * Closing connection 0
 curl: (56) Recv failure: Connection reset by peer
@@ -83,7 +83,10 @@ After connecting to the container and fixing whatever needed to be fixed, Paste 
 - [Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04)
 
 ## File Tree ##
-pending
+
+ROOT
+├── 0-give_me_a_page<br/>
+└── README.md<br/>
 
 
 ## Files ###
@@ -91,4 +94,4 @@ pending
 
 | SN | File | Description                                   |
 |----|------|-----------------------------------------------|
-| 1. | [0-give_me_a_page](https://www.github.com) |  |
+| 1. | [0-give_me_a_page](https://github.com/thecypherzen/alx-system_engineering-devops/tree/main/0x0D-web_stack_debugging_0) | A bash script that fixes apache failure in docker. |
