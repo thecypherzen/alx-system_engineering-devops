@@ -48,7 +48,10 @@ Write a blog post explaining what happens when you type https://www.google.com i
 
 
 ## File Tree ##
-pending
+├── 0-blog_post<br/>
+├── 1-what_happen_when_diagram<br/>
+├── 2-contribution-to_what-happens-when_github_answer<br/>
+└── README.md<br/>
 
 
 ## Files ###
@@ -56,7 +59,7 @@ pending
 
 | SN | File | Description/Task Details                                   |
 |----|------|-----------------------------------------------|
-| 1. | [0-blog_post](https://https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/) | |
-| 2. | [1-what_happen_when_diagram]() |  |
-| 3. | [2-contribution-to_what-happens-when_github_answer]() |  |
-| 4. | README.md | Project readme file |
+| 1. | [0-blog_post](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter/0-blog_post) | Link to blog post exlaing *"what happens when you type google.com in your browser and press enter"* |
+| 2. | [1-what_happen_when_diagram](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter/1-what_happen_when_diagram) | Link to diagram for task 0 |
+| 3. | [2-contribution-to_what-happens-when_github_answer](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter/2-contribution-to_what-happens-when_github_answer) | Link to my pull request showing contribution. |
+| 4. | README.md | Project readme file. |
