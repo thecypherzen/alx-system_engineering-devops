@@ -1,0 +1,3 @@
+#!/usr/bin/bash
+
+scp -i ~/key_stack/.web01_ubuntu "$1" ubuntu@"$2":~/"$3"

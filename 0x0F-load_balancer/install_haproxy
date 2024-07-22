@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# Installs the latest release of HAProxy 2.9.
+# should be run as root
+
+if (("$EUID")); then
+    echo "Root permission needed"
+else
+    apt update
+    apt-get install -y --no-install-recommends software-properties-common
+    add-apt-repository ppa:vbernat/haproxy-2.9
+    apt-get install -y haproxy=2.9.\*
+    echo "ENABLED=1" | tee -a "/etc"
+fi
