@@ -5,9 +5,10 @@ Here, explore the usage of `ufw` to filter out unwanted traffic and or sources f
 
 <hr/>
 
-### Learning
+### Learning Objectives ###
 - install and configure `ufw`
-
+- set up ports forwarding on `ufw`
+- what are iptables, rules and chains.
 
 ### Requirements and Constraints ###
 - Allowed editors: `vi`, `vim`, and `emacs`
@@ -40,12 +41,16 @@ Here, explore the usage of `ufw` to filter out unwanted traffic and or sources f
 - Ubuntu Firewall (ufw)
 
 ## File Tree ##
-
-
+ROOT
+├── 0-block_all_incoming_traffic_but<br />
+├── 100-port_forwarding<br />
+└── README.md<br />
 
 ## Files ###
 - *Here is a detailed list of all files in the repo and their description*.
 
 | SN | File | Description/Task Details                                   |
 |----|------|-----------------------------------------------|
-| 1. | [0-block_all_incoming_traffic_but]() | A file listing commands that:<br/>Configures `ufw` so that it blocks all incoming traffic, except the following TCP ports:<ul><li>22 (SSH)</li><li>443 (HTTPS SSL), and</li><li>80 (HTTP)</li></ul> |
+| 1. | [0-block_all_incoming_traffic_but](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x13-firewall/0-block_all_incoming_traffic_but) | A file listing commands that:<br/>Configures `ufw` so that it blocks all incoming traffic, except the following TCP ports:<ul><li>22 (SSH)</li><li>443 (HTTPS SSL), and</li><li>80 (HTTP)</li></ul> |
+| 2. | [100-port_forwarding](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x13-firewall/100-port_forwarding) | `ufw` confiruration forwarding port 8080/tcp to 80/tcp on a machine. |
+| 3. | README.md | Project readme file |
