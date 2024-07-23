@@ -31,7 +31,10 @@ This time, we're looking at nginx.
 
 ## File Tree ##
 ROOT<br/>
-
+├── 0-iamsomeoneelse<br/>
+├── 1-run_nginx_as_nginx<br/>
+├── 100-fix_in_7_lines_or_less<br/>
+└── README.md<br/>
 
 
 ## Files ###
@@ -39,5 +42,7 @@ ROOT<br/>
 
 | SN | File | Description                                   |
 |----|------|-----------------------------------------------|
-| 1. | [0-iamsomeoneelse]() |  |
-| 3. | Readme.md | Folder readme file |
+| 1. | [0-iamsomeoneelse](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x12-web_stack_debugging_2/0-iamsomeoneelse) | A bash script that takes one argument and executes `whoami` as that user |
+| 2. | [1-run_nginx_as_nginx](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x12-web_stack_debugging_2/1-run_nginx_as_nginx) | A bash script that configures nginx to listen on port 8080 as user `nginx` |
+| 3. | [100-fix_in_7_lines_or_less](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x12-web_stack_debugging_2/100-fix_in_7_lines_or_less) | A shorter form of *1-run_nginx_as_nginx*. |
+| 4. | Readme.md | Folder readme file |
