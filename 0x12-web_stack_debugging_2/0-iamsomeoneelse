@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #takes a username and executes a command as that user
 
-su "$1" -c whoami
+su -s /bin/bash "$1" -c whoami
