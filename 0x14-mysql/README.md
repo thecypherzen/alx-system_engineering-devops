@@ -1,14 +1,19 @@
 # Overview #
-Telnet is a good way to connect to remote hosts using `telnet <IP> <PORT>. However, it's not at all times that we'd be able to connect remotely to a machine on a certain port, especially if it's blocked by the firewall.
+When building a web infrastructure, it is important to take high availability seriously. In addition to the web-server itself, the database also has to be available at all times, regardless of downtimes.
 
-Here, explore the usage of `ufw` to filter out unwanted traffic and or sources from accessing our network.
+This project is therefore, all about ensuring database high-availability through replication.
 
 <hr/>
 
 ### Learning Objectives ###
-- install and configure `ufw`
-- set up ports forwarding on `ufw`
-- what are iptables, rules and chains.
+At the completion of this project, we should be conversant with the following:
+- What is the main role of a database
+- What is a database replica
+- What is the purpose of a database replica
+- Why database backups need to be stored in different physical locations
+- What operation should be regularly performed to make sure that your database backup strategy actually works
+
+
 
 ### Requirements and Constraints ###
 - Allowed editors: `vi`, `vim`, and `emacs`
@@ -22,23 +27,21 @@ Here, explore the usage of `ufw` to filter out unwanted traffic and or sources f
 
 
 ## Folder Details ###
-- **Date Created:** Mon. July 22, 2024.
+- **Date Created:** Tue. July 23, 2024.
 - **Author:** [William Inyam](https.//github.com/thecypherzen).
 - **Project Timeline:**
-  - **Released:** Mon. July 22, 2024 - 6am.
-  - **1st Deadline:** Tue. July 23, 2024 - 6am.
+  - **Released:** Tue. July 23, 2024 - 6am.
+  - **1st Deadline:** Wed. July 24, 2024 - 6am.
   - **Duration:**  24hrs.
 
 
 ## Reference Resources
-- [Web stack debugging](https://www.notion.so/WebStack-Debugging-ba8d7dd00b6042b898234b85b6a0eb1e)
-- [What is a firewall](https://en.wikipedia.org/wiki/Firewall_%28computing%29)
+- [What is a primary-replica cluster](https://www.digitalocean.com/community/tutorials/how-to-choose-a-redundancy-plan-to-ensure-high-availability#sql-replication)
+- [MySQL primary replica setup](https://www.digitalocean.com/community/tutorials/how-to-set-up-replication-in-mysql)
+- [Build a robust database backup strategy](https://www.databasejournal.com/ms-sql/developing-a-sql-server-backup-strategy/)
+- [mysqldump](https://linux.die.net/man/1/mysqldump)
 
 
-## Technologies ##
-- OS: Ubuntu 20.04
-- Vagrant
-- Ubuntu Firewall (ufw)
 
 ## File Tree ##
 ROOT<br/>
@@ -46,11 +49,12 @@ ROOT<br/>
 ├── 100-port_forwarding<br />
 └── README.md<br />
 
+
+
 ## Files ###
 - *Here is a detailed list of all files in the repo and their description*.
 
 | SN | File | Description/Task Details                                   |
 |----|------|-----------------------------------------------|
-| 1. | [0-block_all_incoming_traffic_but](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x13-firewall/0-block_all_incoming_traffic_but) | A file listing commands that:<br/>Configures `ufw` so that it blocks all incoming traffic, except the following TCP ports:<ul><li>22 (SSH)</li><li>443 (HTTPS SSL), and</li><li>80 (HTTP)</li></ul> |
-| 2. | [100-port_forwarding](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x13-firewall/100-port_forwarding) | `ufw` confiruration forwarding port 8080/tcp to 80/tcp on a machine. |
-| 3. | README.md | Project readme file |
+| 1. | [4-mysql_configuration_primary]() | |
+| 2. | [4-mysql_configuration_replica]() | |
