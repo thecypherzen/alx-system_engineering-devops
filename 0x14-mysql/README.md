@@ -56,5 +56,5 @@ ROOT<br/>
 
 | SN | File | Description/Task Details                                   |
 |----|------|-----------------------------------------------|
-| 1. | [4-mysql_configuration_primary]() | |
-| 2. | [4-mysql_configuration_replica]() | |
+| 1. | [4-mysql_configuration_primary]() | Task 4, file 1 |
+| 2. | [4-mysql_configuration_replica]() | Task 4 file 2 |
