@@ -45,10 +45,10 @@ At the completion of this project, we should be conversant with the following:
 
 ## File Tree ##
 ROOT<br/>
-├── 0-block_all_incoming_traffic_but<br />
-├── 100-port_forwarding<br />
+├── 4-mysql_configuration_primary<br />
+├── 4-mysql_configuration_replica<br />
+├── 5-mysql_backup<br />
 └── README.md<br />
-
 
 
 ## Files ###
@@ -56,5 +56,7 @@ ROOT<br/>
 
 | SN | File | Description/Task Details                                   |
 |----|------|-----------------------------------------------|
-| 1. | [4-mysql_configuration_primary]() | Task 4, file 1 |
-| 2. | [4-mysql_configuration_replica]() | Task 4 file 2 |
+| 1. | [4-mysql_configuration_primary](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x14-mysql/4-mysql_configuration_primary) | Mysql replication configuration for primary server - **web01**.|
+| 2. | [4-mysql_configuration_replica](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x14-mysql/4-mysql_configuration_replica) | MySql replication configuration for replica server **web02**.|
+| 3. | [5-mysql_backup](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x14-mysql/5-mysql_backup) | A script that backs up all databases on a server as a compresesed archive. |
+| 4. | README.md | Folder readme file |
