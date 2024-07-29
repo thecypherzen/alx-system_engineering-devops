@@ -56,7 +56,12 @@ This is a perfect example of a task that is not suited for Bash scripting, so w'
 
 ## File Tree ##
 ROOT<br/>
-
+├── 0-gather_data_from_an_API.py<br />
+├── 1-export_to_CSV.py<br />
+├── 2-export_to_JSON.py<br />
+├── 3-dictionary_of_list_of_dictionaries.py<br />
+├── README.md<br />
+└── test.py<br />
 
 
 ## Files ###
@@ -64,4 +69,9 @@ ROOT<br/>
 
 | SN | File | Description/Task Details                                   |
 |----|------|-----------------------------------------------|
-| 1. |  |  |
+| 1. | [0-gather_data_from_an_API.py ](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x15-api/0-gather_data_from_an_API.py) | A Python script that, using this [REST API](https://jsonplaceholder.typicode.com/), for a given employee ID, returns information about his/her TODO list progress, in this format:<br/>*First line: Employee `EMPLOYEE_NAME` is done with tasks(`NUMBER_OF_DONE_TASKS`/`TOTAL_NUMBER_OF_TASKS`):*<br/>Second and N next lines display the title of completed tasks: `TASK_TITLE` (with 1 tab character and 1 space before the `TASK_TITLE`). |
+| 2. | [1-export_to_CSV.py](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x15-api/1-export_to_CSV.py) | A python script that records a user's todos progress information in a `csv` file. The `.csv` file is in the format: `"<USER_ID>"`,`"<USERNAME>"`,`"<TASK_COMPLETED_STATUS">`,`"<TASK_TITLE>"`; and named as `<USER_ID>`.csv. |
+| 3. | [2-export_to_JSON.py](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x15-api/2-export_to_JSON.py) | A script that saes all tasks owned by an employee in a json file, named `<USER_ID>.json`.The file is formatted as: *{ `"<USER_ID>"`: [{"task": `"<TASK_TITLE>"`, "completed": `<TASK_COMPLETED_STATUS>`, "username": `"<USERNAME>"`}, {"task": `"<TASK_TITLE>"`, "completed": `<TASK_COMPLETED_STATUS>`, "username": `"<USERNAME>"`}, ... ]}*  |
+| 4. | [3-dictionary_of_list_of_dictionaries.py](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x15-api/3-dictionary_of_list_of_dictionaries.py) | A script that saves information of tasks for all employees in a file named `todo_all_employees.json`, and formatted as 3 above. |
+| 5. | README.md | Folder readme |
+| 6. | [test.py]() | A script for simple testing of commands before execution |
