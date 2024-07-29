@@ -65,7 +65,7 @@ ROOT<br/>
 
 
 ## Files ###
-- *Here is a detailed list of all files in the repo and their description*.
+*Here is a detailed list of all files in the repo and their description*.
 
 | SN | File | Description/Task Details                                   |
 |----|------|-----------------------------------------------|
