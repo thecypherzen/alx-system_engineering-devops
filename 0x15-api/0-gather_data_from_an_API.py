@@ -19,7 +19,6 @@
          +<TASK_TITLE> (with 1 tab and 1 space before the TASK_TITLE)
 """
 
-import json
 import requests
 import sys
 
