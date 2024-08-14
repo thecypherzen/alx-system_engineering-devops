@@ -11,7 +11,7 @@ I love this!!!
 
 *PS*
 ---
-After completing this project on the third deadline, I must say that it is a very interesing one. I learned how to use tmux and strace ([see a substack I wrote here](https://))to troubleshoot a wordpress server. This project also gave me a deeper understanding of how wordpress works under the hood, boosting my confidence working with it.
+After completing this project, I must say that it is a very interesing one. I learned how to use tmux and strace ([see a substack I wrote here](https://))to troubleshoot a wordpress server. This project also gave me a deeper understanding of how wordpress works under the hood, boosting my confidence working with it.
 
 ---
 
@@ -47,12 +47,12 @@ $ gem install puppet-lint -v 2.1.1
 ```
 
 ## Reference Resources ##
-- WebServer:
-  - [Wikipedia page about web server](https://en.wikipedia.org/wiki/Web_server)
-  - [Web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
-  - [What is a Web Server?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
+- [Wikipedia page about web server](https://en.wikipedia.org/wiki/Web_server)
+- [Web server](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
+- [What is a Web Server?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_web_server)
 - [Troubleshooting a Server](https://www.linux.com/training-tutorials/first-5-commands-when-i-connect-linux-server/)
 - [Troubleshooting Apache using strace](https://bobcares.com/blog/troubleshooting-apache-using-strace/)
+- [Web stack debugging](https://www.notion.so/WebStack-Debugging-ba8d7dd00b6042b898234b85b6a0eb1e)
 
 ## File Tree ##
 .
@@ -65,4 +65,4 @@ $ gem install puppet-lint -v 2.1.1
 
 | SN | File | Description                                   |
 |----|------|-----------------------------------------------|
-| 1. | [0-strace_is_your_friend.pp](https://www.github.com/thecypherzen.com) | A puppet code that fixes server fail error.|
+| 1. | [0-strace_is_your_friend.pp](https://github.com/thecypherzen/alx-system_engineering-devops/tree/main/0x17-web_stack_debugging_3) | A puppet code that fixes server fail error.|
