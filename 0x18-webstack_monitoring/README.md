@@ -12,16 +12,15 @@ Most of the work on this project was done on our Monitoring agent [Datadog](http
     3. Installing the datadog agent on our remote server
     4. Setting up Monitors and alerts for various information, including *IO:writes/sec* and *IO:reads/sec*.
     5. Creating a dashboard on our Account
-    6. Accessing our account information/data via the [API](api.datadog.hq).
+    6. Accessing our account information/data via the [API](api.datadog.hq).<br/>
 
-<br/>
 ## Objectives ##
 - Why is monitoring needed
 - What are the 2 main area of monitoring
 - What are access logs for a web server (such as Nginx)
-- What are error logs for a web server (such as Nginx)
+- What are error logs for a web server (such as Nginx)<br/>
 
-<br/>
+
 ## General Project Requirements ##
 - All your files will be interpreted on Ubuntu 14.04 LTS
 - All your files should end with a new line
@@ -29,31 +28,31 @@ Most of the work on this project was done on our Monitoring agent [Datadog](http
 - Your Puppet manifests must pass puppet-lint version 2.1.1 without any errors
 - Your Puppet manifests must run without error
 - Your Puppet manifests first line must be a comment explaining what the Puppet manifest is about
-- Your Puppet manifests files must end with the extension
+- Your Puppet manifests files must end with the extension<br/>
 
-<br/>
+
 ## Folder Details ###
 - **Date Created:** Sat. June 8 2024.
 - **Author:** [William Inyam](https.//github.com/thecypherzen).
 - **Project Timeline:**
   - **Released:** Wed Aug 14 2024 - 6am.
   - **1st Deadline:** Thur Aug 15 2024 - 6am.
-  - **Duration:** 24 hrs.
+  - **Duration:** 24 hrs.<br/>
 
 
 ## Reference Resources ##
 - [What is server monitoring](https://www.sumologic.com/glossary/server-monitoring/)
 - [What is application monitoring](https://en.wikipedia.org/wiki/Application_performance_management)
 - [System monitoring by Google](https://sre.google/sre-book/monitoring-distributed-systems/)
-- [Nginx logging and monitoring](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/)
+- [Nginx logging and monitoring](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/)<br/>
 
 ## File Tree ##
 .<br/>
-├── 2-setup_datadog<br/>
-└── README.md<br/>
+├── 2-setup_datadog<br>
+└── README.md<br>
 <br/>
-0 directories, 2 files
-<br/>
+0 directories, 2 files<br/>
+
 
 ## Files ###
 - *Here is a detailed list of all files in the repo and their description*.
