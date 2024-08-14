@@ -56,8 +56,8 @@ $ gem install puppet-lint -v 2.1.1
 
 ## File Tree ##
 .
-├── 0-strace_is_your_friend.pp
-└── README.md
+├── 0-strace_is_your_friend.pp<br/>
+└── README.md<br/>
 
 
 ## Files ###
