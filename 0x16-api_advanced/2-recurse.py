@@ -3,13 +3,16 @@
 
 
 def recurse(subreddit, hot_list=[]):
-    """ A function that queries the Reddit API and and prints the titles
-        of the first 10 hot posts listed for a given subreddit.
-
-        Requirements:
-        - If not a valid subreddit, print None.
-        - NOTE: Invalid subreddits may return a redirect to search results.
-                Ensure that you are not following redirects.
+    """ A function that queries the Reddit API and returns a list containing the
+    titles of all hot articles for a given subreddit. If no results are found for
+    the given subreddit, the function should return None.
+    Requirements:
+     - You may change the prototype, but it must be able to be called with just
+       a subreddit supplied. AKA you can add a counter, but it must work without
+       supplying a starting value in the main.
+     - If not a valid subreddit, return None.
+     NOTE: Invalid subreddits may return a redirect to search results.
+           Ensure that you are not following redirects.
     """
     import requests
 
