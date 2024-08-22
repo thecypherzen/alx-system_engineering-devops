@@ -2,4 +2,4 @@
 # A script that reloads gunicorn in a gracefull way.
 # I used this method because both my app and api servers are running in the background,
 # +and I had to target only that of the app server, not the api.
-kill -HUP "$(pgrep -a gunicorn | grep -e ".*[5]003.*" | awk '{print $1}' | sort -n | head -1)"
+sudo kill -HUP "$(pgrep -a gunicorn | grep -e ".*[5]003.*" | awk '{print $1}' | sort -n | head -1)"
