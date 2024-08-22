@@ -3,8 +3,10 @@
 ## Background Context ##
 In this web stack debugging task, we are testing how well our web server setup featuring Nginx is doing under pressure and it turns out it’s not doing well: we are getting a huge amount of failed requests.
 
-For the benchmarking, we are using [ApacheBench](https://httpd.apache.org/docs/current/programs/ab.html) which is a quite popular tool in the industry. It allows us to simulate HTTP requests to a web server. For starters, we have a serverto which we  made 2000 requests with 100 requests at a time. 943 requests failed! Our first task is to  fix our stack so that we get failures down to 0, using our Werkzeugsatz - *German for toolkit* 💪💪🧰
+For the benchmarking, we are using [ApacheBench](https://httpd.apache.org/docs/current/programs/ab.html) which is a quite popular tool in the industry. It allows us to simulate HTTP requests to a web server. For starters, we have a serverto which we  made 2000 requests with 100 requests at a time. 696 requests failed - this may vary from time to time, but it's still bad because if 700/2000 requests are failing, it translates to 35% of our users complaining! Our first task is to  fix our stack so that we get failures down to 0, using our Werkzeugsatz - *German for toolkit* 💪💪🧰
 
+
+In second scenaria, we are prensented with a server which has a user *holberton*. However, when `su - holberton` is attempted, the error `-su: /home/holberton/.bash_profile: Too many open files` pops up. Our task is to resolve this issue and write a puppet manifest to automate it. Nice 😎🤩
 
 
 ## Folder Details ###
@@ -39,4 +41,5 @@ $ gem install puppet-lint -v 2.1.1
 
 | SN | File | Description                                   |
 |----|------|-----------------------------------------------|
-| 1. | [0-strace_is_r_friend.pp](https://www.github.com/thecypherzen.com) | A puppet code that fixes server fail error.|
+| 1. | [0-the_sky_is_the_limit_not.pp](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x1B-web_stack_debugging_4/0-the_sky_is_the_limit_not.pp) | A puppet manifest that raises the limit on concurrent nginx open files.|
+| 2. | [1-user_limit.pp](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x1B-web_stack_debugging_4/1-user_limit.pp) | A puppet manifest that raises the limit on user `holberton`'s simultaneous open files.|
