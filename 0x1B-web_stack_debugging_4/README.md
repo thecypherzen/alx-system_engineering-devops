@@ -39,7 +39,7 @@ $ gem install puppet-lint -v 2.1.1
 ## Files ###
 - *Here is a detailed list of all files in the repo and their description*.
 
-| SN | File | Description                                   |
-|----|------|-----------------------------------------------|
+| SN | File                         | Description                                         |
+|----|------------------------------|-----------------------------------------------------|
 | 1. | [0-the_sky_is_the_limit_not.pp](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x1B-web_stack_debugging_4/0-the_sky_is_the_limit_not.pp) | A puppet manifest that raises the limit on concurrent nginx open files.|
 | 2. | [1-user_limit.pp](https://github.com/thecypherzen/alx-system_engineering-devops/blob/main/0x1B-web_stack_debugging_4/1-user_limit.pp) | A puppet manifest that raises the limit on user `holberton`'s simultaneous open files.|
