@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# A script that reloads gunicorn in a gracefull way.
+# I used this method because both my app and api servers are running in the background,
+# +and I had to target only that of the app server, not the api.
+kill -HUP $(ps auxf | grep -e "gunicorn.*5003.*" | grep -v grep | awk '{print $2}' | sort -n | head -1)
